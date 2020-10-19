@@ -6,7 +6,7 @@ img_dir = path.join(path.dirname(__file__), "img")
 pygame.init()
 clock = pygame.time.Clock()
 FPS = 30
-screen = pygame.display.set_mode((1200, 900))
+screen = pygame.display.set_mode((1200, 800))
 
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
@@ -18,8 +18,8 @@ BLACK = (0, 0, 0)
 WHITE = (255,255,255)
 COLORS = [RED, BLUE, YELLOW, GREEN, MAGENTA, CYAN, BLACK]
 WIDTH = 1200
-HEIGHT = 900
-k = 0
+HEIGHT = 800
+
 
 f = open("filer", "a")
 
@@ -162,14 +162,19 @@ def draw_text(surf, text, size, x1, y1):
 # starting number of points
 k=0
 
-# positions,sizes and velocities for balls
+
+screen.fill(BLACK)
+draw_text(screen, "ENTER YOUR NAME", 120, 600,300)
 
 
 pygame.display.update()
 clock = pygame.time.Clock()
 finished = False
+
+
 name = input()
 
+          
 while not finished:
         
     clock.tick(FPS)   
@@ -187,8 +192,7 @@ while not finished:
                     k += 3
                     scull.remake()
       
-    #draw_text(screen, str(k), 80, 600, 10)                
-    #all_sprites.update()
+    
     
     
     
@@ -205,7 +209,7 @@ f.write(name + ' ' + str(k) + '\n')
 
 pygame.quit()
 f.close()
-
+# sorting massiv to find leaders
 f = open("filer", 'r')
 A = []
 x = f.readline()
